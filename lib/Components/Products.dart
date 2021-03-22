@@ -20,12 +20,6 @@ class _ProductsState extends State<Products> {
       "all_price": "110",
       "price": "50",
     },
-    {
-      "name": "Red dress",
-      "picture": "images/products/dress.jpg",
-      "all_price": "110",
-      "price": "50",
-    }
   ];
 
   @override
