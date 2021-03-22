@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multivendorapp/Pages/product_details.dart';
 
 class Products extends StatefulWidget {
   @override
@@ -12,6 +13,12 @@ class _ProductsState extends State<Products> {
       "picture": "images/products/men_tshirt.jpg",
       "all_price": "150",
       "price": "77",
+    },
+    {
+      "name": "Red dress",
+      "picture": "images/products/dress.jpg",
+      "all_price": "110",
+      "price": "50",
     },
     {
       "name": "Red dress",
@@ -58,7 +65,13 @@ class SingleProduct extends StatelessWidget {
         tag: product_name,
         child: Material(
           child: InkWell(
-            onTap: () {},
+            onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => ProductDetails(
+                  product_details_name: product_name,
+                  product_details_new_price: product_price,
+                  product_details_old_price: product_old_price,
+                  product_details_picture: product_picture,
+                ))),
             child: GridTile(
               child: Image.asset(
                 product_picture,
@@ -79,7 +92,9 @@ class SingleProduct extends StatelessWidget {
                   subtitle: Text(
                     '\$$product_old_price',
                     style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.w600,decoration: TextDecoration.lineThrough),
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        decoration: TextDecoration.lineThrough),
                   ),
                 ),
               ),
